@@ -1,0 +1,145 @@
+var bullets = [];
+var enemies = [];
+//let bulletCounter = 0;
+//let enemyCounter = 0;
+//bullets[0] = bullet;
+//var wrapper = document.getElementsByClassName("wrapper");
+
+window.onload = function(){
+    //const canvas = document.getElementById("canvas");
+    //const gameBoard = canvas.getContext("2d");
+    let player = document.getElementById("player");
+    let enemy = document.getElementById("enemy");
+    //let bullet = document.getElementById("bullet");
+    //let body = document.getElementById("body");
+    //var wrapper = document.getElementsByClassName("wrapper");
+
+    //var background = new Image();
+    //var character = new Image();
+    //var enemy = new Image();
+    //var bullet = new Image();
+    
+    //background.src = "imgs/background.png";
+    //character.src = "imgs/player1.png";
+    //enemy.src = "imgs/player2.png";
+    //bullet.src = "imgs/player3.png";
+
+    /*character.onload = function(){
+        player = new player();
+    }*/
+
+    //var bullets = [];
+    //bullets[0] = bullet;
+
+    player.style.position = 'absolute';
+    player.style.top = 550+'px';
+    player.style.left = 375+'px';
+
+    enemy.style.position = 'absolute';
+    enemy.style.top = Math.floor(Math.random() * -200) + 'px';
+    enemy.style.left = 0;
+
+    /*bullet.style.position = 'absolute';
+    bullet.style.top = 0;
+    bullet.style.left = 0;*/
+}
+
+document.addEventListener("keydown", moveCharacter)
+
+function moveCharacter(event){
+    switch(event.key){
+        case "ArrowUp":
+            //console.log("Move up");
+            if(parseInt(player.style.top) > 0){
+                player.style.top = parseInt(player.style.top) - 10 + 'px';
+            }
+            break;
+        case "ArrowDown":
+            //console.log("Move down");
+            if(parseInt(player.style.top) < 550){//canvas.height
+                player.style.top = parseInt(player.style.top) + 10 + 'px';
+            }
+            break;
+        case "ArrowRight":
+            //console.log("Move right");
+            if(parseInt(player.style.left) < 750){
+                player.style.left = parseInt(player.style.left) + 10 + 'px';
+            }
+            break;
+        case "ArrowLeft":
+            //console.log("Move left");
+            if(parseInt(player.style.left) > 0){
+                player.style.left = parseInt(player.style.left) - 10 + 'px';
+            }
+            break;
+    }
+}
+
+setInterval(moveEnemies, 100);
+
+function moveEnemies(){
+    if(parseInt(enemy.style.top) < 650){ //enemy.style.top < canvas.style.height+'px'
+        enemy.style.top = parseInt(enemy.style.top) + 10 + 'px';
+    }else{
+        enemy.style.top = Math.floor(Math.random() * -200) + 'px';
+        enemy.style.left = Math.floor(Math.random() * 750) + 'px';
+    }
+}
+
+document.addEventListener("click", createBullet);
+function createBullet(){
+    //console.log("CLICK");
+    //bullets[bulletCounter] = bullet;
+    //bulletCounter++;
+    //Element.innerHTML
+    //document.wrapper.innerHTML = "";
+    //bullet = element.innerHTML;
+    let bullet = document.getElementsByClassName("wrapper").innerHTML = '<img id="bullet" src="imgs/player3.png"/>'; 
+    //document.getElementsByClassName("wrapper").innerHTML = document.getElementById("bullet"); 
+    //let bullet = document.getElementById("bullet");
+
+    bullet.style.position = 'absolute';
+    bullet.style.top = 0;
+    bullet.style.left = 0;
+
+    bullet.style.top = parseInt(player.style.top) + 'px';
+    bullet.style.left = parseInt(player.style.left) + 20 +'px';
+    bullets.push(bullet);
+}
+
+setInterval(moveBullets, 100);
+
+function moveBullets(){
+    if(bullets[0] != null){
+        if(parseInt(bullet.style.top) < -20){
+            delete bullets[0];
+            //bullets[0] = null;
+        }else{
+            bullet.style.top = parseInt(bullet.style.top) - 20 + 'px';
+        }
+    }
+
+    /*if(bullets.length > 0){
+        bullets.forEach(function(i){
+            //bullets.push(bullet);
+
+            if(bullet.style.top > 0){
+                delete bullets[i];
+            }
+        });
+        bullets = bullets.filter(item => item !== undefined);
+    }*/
+}
+
+
+/*setInterval(moveBackground, 100);
+
+function moveBackground(){
+    if(parseInt(bullet.style.top) > 0){
+        //enemy.style.top = parseInt(enemy.style.top) + 10 + 'px';
+    }else{
+        bullet.style.top = parseInt(bullet.style.top) - 10 + 'px';
+        //enemy.style.top = Math.floor(Math.random() * -20) - enemy.style.height + 'px';
+        //enemy.style.left = Math.floor(Math.random() * 800) + 'px';
+    }
+}*/
