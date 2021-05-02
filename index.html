@@ -4,17 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
-    <title>Juego</title>
+    <link rel="stylesheet" href="style.css"/>
+    <title>Start Menu</title>
 </head>
 <body>
-    <div class="wrapper">
-        <!-- <canvas id="canvas"></canvas> -->
-        <img id="player" src="imgs/player1.png" alt="player"/>
-        <img id="enemy" src="imgs/player2.png" alt="enemy"/>
-        <!-- <img id="bullet" src="imgs/player3.png" alt="bullet"/> -->
+    <div id="container">
+        <img class="title" src="imgs/titulo.png" alt="title">
+        <a href="game.html"><button class="btn1">Start Game</button></a>
+        <a href="credits.html"><button class="btn2">Credits</button></a>
     </div>
     
-    <script src="app.js"></script>
+    <audio src="media/theme.mp3" controls autoplay loop hidden></audio>
+    
+    
+    <!--<script src="music.js"></script>
+        <audio src="media/theme.mp3" controls autoplay loop hidden></audio>
+        
+        <audio id="audio">
+    </audio>
+    <embed name="Theme" src="media/theme.mp3" type="audio/mpeg" loop="true" hidden="true" autostart="true">
+        
+        <button class="btn3" id="change" onclick="playSong()">Play</button>
+
+        <audio class="audio" controls autoplay loop>
+        <source src="media/theme.mp3" type="audio/mpeg">
+        <source src="media/theme.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <iframe src="media/theme.mp3" type="audio/mpeg" allow="autoplay" id="audio"></iframe>
+        <audio autoplay>
+        <source src="media/theme.mp3" type="audio/mpeg">
+        </audio>-->
 </body>
 </html>
