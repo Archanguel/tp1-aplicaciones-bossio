@@ -134,12 +134,11 @@ function colision(){
     for(let i = 0; i < enemies.length ; i++){
         for(let j = 0; j < bullets.length ; j++){
             if(enemies[i].style.left <= bullets[j].style.left && enemies[i].style.top + enemies[i].style.width >= bullets[j].style.top
-            && enemies[i].style.top + enemies[i].style.height == bullets[j].style.top){ //  && enemies[i].style.top == bullets[j].style.top
-                console.log('hola');
+            && enemies[i].style.top + enemies[i].style.height == bullets[j].style.top){
                 enemies.splice(i, 1);
-                enemy.parentNode.removeChild(enemy);
+                //enemy.parentNode.removeChild(enemy);
                 bullets.splice(j, 1);
-                bullet.parentNode.removeChild(bullet);
+                //bullet.parentNode.removeChild(bullet);
                 kda++;
                 score.innerText = 'Score: ' + kda;
             }
