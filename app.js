@@ -131,27 +131,28 @@ function moveBullets() {
 
 setInterval(colision,0);
 function colision(){
-    
     /*bullets.forEach(function(bullet) {
         enemies.forEach(function(enemy) {
-            if (parseInt(bullet.style.top) == parseInt(enemy.style.top) + parseInt(enemy.style.height) &&
-                parseInt(bullet.style.left) > parseInt(enemy.style.left) &&
-                parseInt(bullet.style.left) < parseInt(enemy.style.left) + parseInt(enemy.style.width)) {
-                    console.log('hola');
+            if (parseInt(bullet.style.top) + 'px' == (parseInt(enemy.style.top) + parseInt(enemy.style.height)) + 'px' &&
+                (parseInt(bullet.style.left) - parseInt(bullet.style.width) + 1) + 'px' > parseInt(enemy.style.left) + 'px' &&
+                parseInt(bullet.style.left) + 'px' < (parseInt(enemy.style.left) + parseInt(enemy.style.width) - 1) + 'px') {
+                    enemy.parentNode.removeChild(enemy);
+                    bullet.parentNode.removeChild(bullet);
+                    kda++;
+                    score.innerText = 'Score: ' + kda;
             }
         });
     });*/
 
     for(let i = 0; i < enemies.length ; i++){
         for(let j = 0; j < bullets.length ; j++){
-            if(enemies[i].style.left < bullets[j].style.left
-            && enemies[i].style.left + enemies[i].style.width > bullets[j].style.left
-            && enemies[i].style.top + enemies[i].style.height == bullets[j].style.top){
-                console.log('hola');
+            if(parseInt(enemies[i].style.left) < (parseInt(bullets[j].style.left) + parseInt(bullets[j].style.width) + 1)
+            && (parseInt(enemies[i].style.left) + parseInt(enemies[i].style.width) - 1) > parseInt(bullets[j].style.left)
+            && (parseInt(enemies[i].style.top) + parseInt(enemies[i].style.height)) == parseInt(bullets[j].style.top)){
                 enemies.splice(i, 1);
-                enemy.parentNode.removeChild(enemy);
+                enemies[i].removeChild(enemies[i]);
                 bullets.splice(j, 1);
-                bullet.parentNode.removeChild(bullet);
+                bullets[j].removeChild(bullets[j]);
                 kda++;
                 score.innerText = 'Score: ' + kda;
                 //delete bullets[j];
