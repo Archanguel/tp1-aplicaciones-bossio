@@ -25,7 +25,7 @@ function moveCharacter(event){
             break;
         case "s": //"ArrowDown"
             if(pause == false){
-                if(parseInt(player.style.top) < 550){//canvas.height
+                if(parseInt(player.style.top) < 550){
                     player.style.top = parseInt(player.style.top) + 10 + 'px';
                 }
             }
@@ -150,9 +150,9 @@ function colision(){
             && (parseInt(enemies[i].style.left) + parseInt(enemies[i].style.width) - 1) > parseInt(bullets[j].style.left)
             && (parseInt(enemies[i].style.top) + parseInt(enemies[i].style.height)) == parseInt(bullets[j].style.top)){
                 enemies.splice(i, 1);
-                enemies[i].removeChild(enemies[i]);
+                enemy.parentNode.removeChild(enemy);
                 bullets.splice(j, 1);
-                bullets[j].removeChild(bullets[j]);
+                bullet.parentNode.removeChild(bullet);
                 kda++;
                 score.innerText = 'Score: ' + kda;
                 //delete bullets[j];
