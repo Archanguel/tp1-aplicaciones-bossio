@@ -131,16 +131,31 @@ function moveBullets() {
 
 setInterval(colision,0);
 function colision(){
+    
+    /*bullets.forEach(function(bullet) {
+        enemies.forEach(function(enemy) {
+            if (parseInt(bullet.style.top) == parseInt(enemy.style.top) + parseInt(enemy.style.height) &&
+                parseInt(bullet.style.left) > parseInt(enemy.style.left) &&
+                parseInt(bullet.style.left) < parseInt(enemy.style.left) + parseInt(enemy.style.width)) {
+                    console.log('hola');
+            }
+        });
+    });*/
+
     for(let i = 0; i < enemies.length ; i++){
         for(let j = 0; j < bullets.length ; j++){
-            if(enemies[i].style.left <= bullets[j].style.left && enemies[i].style.top + enemies[i].style.width >= bullets[j].style.top
+            if(enemies[i].style.left < bullets[j].style.left
+            && enemies[i].style.left + enemies[i].style.width > bullets[j].style.left
             && enemies[i].style.top + enemies[i].style.height == bullets[j].style.top){
+                console.log('hola');
                 enemies.splice(i, 1);
-                //enemy.parentNode.removeChild(enemy);
+                enemy.parentNode.removeChild(enemy);
                 bullets.splice(j, 1);
-                //bullet.parentNode.removeChild(bullet);
+                bullet.parentNode.removeChild(bullet);
                 kda++;
                 score.innerText = 'Score: ' + kda;
+                //delete bullets[j];
+                //delete enemies[i];
             }
         }
     }
