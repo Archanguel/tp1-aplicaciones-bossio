@@ -114,6 +114,14 @@ p{
     text-align: center;
     color: #3ab6f2;
     position: absolute;
+}
+
+#credits{
     top: 50px;
     left: 100px;
+}
+
+#score{
+    top: -50px;
+    left: 10px;
 }

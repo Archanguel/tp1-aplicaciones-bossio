@@ -3,6 +3,7 @@ var enemies = [];
 let player = document.getElementById("player");
 //let enemy = document.getElementById("enemy");
 //let bullet = document.getElementById("bullet");
+var score = document.getElementById('score');
 
 player.style.position = 'absolute';
 player.style.top = 550+'px';
@@ -13,6 +14,7 @@ let enemyCounter = 30;
 //bullets[0] = bullet;
 //var wrapper = document.getElementsByClassName("wrapper");
 var pause = false;
+let kda = 0;
 
 window.onload = function(){
     //const canvas = document.getElementById("canvas");
@@ -97,6 +99,13 @@ function moveCharacter(event){
     }
 }
 
+setInterval(update, 100);
+function update(){
+    moveEnemies();
+    moveBullets();
+    //colision();
+}
+
 setInterval(createEnemies, 1000);
 
 function createEnemies(){
@@ -119,7 +128,7 @@ function createEnemies(){
     */
 }
 
-setInterval(moveEnemies, 100);
+//setInterval(moveEnemies, 100);
 
 function moveEnemies(){
     if(pause == false){
@@ -167,7 +176,8 @@ function createBullet(){
         document.querySelector('.wrapper').appendChild(bullet)
     }
 }
-setInterval(moveBullets, 100);
+
+//setInterval(moveBullets, 100);
 
 function moveBullets() {
     if(pause == false){
@@ -265,13 +275,44 @@ function moveBackground(){
         //enemy.style.left = Math.floor(Math.random() * 800) + 'px';
     }
 }*/
-
+setInterval(colision,0);
 function colision(){
+    
+    /*bullets.forEach(function(bullet) {
+        for(let i = 0; i < enemies.length ; i++){
+            if (parseInt(bullet.style.top) == enemies[i].style.top && parseInt(bullet.style.left) == enemies[i].style.left) {
+                console.log('hola');
+                //bullets.shift();
+                //bullet.parentNode.removeChild(bullet);
+            }
+        }
+    });
+
     for(let i = 0; i < enemies.length ; i++){
         for(let j = 0; j < bullets.length ; j++){
             if(enemies[i].style.left == bullets[j].style.left && enemies[i].style.top == bullets[j].style.top){
-                delete bullets[j];
-                delete enemies[i];
+                console.log('hola');
+                enemies.splice(i, 1);
+                bullets.splice(j, 1);
+                //delete bullets[j];
+                //delete enemies[i];
+            }
+        }
+    }*/
+
+    for(let i = 0; i < enemies.length ; i++){
+        for(let j = 0; j < bullets.length ; j++){
+            if(enemies[i].style.left <= bullets[j].style.left && enemies[i].style.top + enemies[i].style.width >= bullets[j].style.top
+            && enemies[i].style.top + enemies[i].style.height == bullets[j].style.top){ //  && enemies[i].style.top == bullets[j].style.top
+                console.log('hola');
+                enemies.splice(i, 1);
+                enemy.parentNode.removeChild(enemy);
+                bullets.splice(j, 1);
+                bullet.parentNode.removeChild(bullet);
+                kda++;
+                score.innerText = 'Score: ' + kda;
+                //delete bullets[j];
+                //delete enemies[i];
             }
         }
     }
