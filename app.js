@@ -149,14 +149,12 @@ function colision(){
             if(parseInt(enemies[i].style.left) < (parseInt(bullets[j].style.left) + parseInt(bullets[j].style.width) + 1)
             && (parseInt(enemies[i].style.left) + parseInt(enemies[i].style.width) - 1) > parseInt(bullets[j].style.left)
             && (parseInt(enemies[i].style.top) + parseInt(enemies[i].style.height)) == parseInt(bullets[j].style.top)){
-                enemies.splice(i, 1);
-                enemy.parentNode.removeChild(enemy);
-                bullets.splice(j, 1);
-                bullet.parentNode.removeChild(bullet);
                 kda++;
                 score.innerText = 'Score: ' + kda;
-                //delete bullets[j];
-                //delete enemies[i];
+                enemies[i].style.top = Math.floor(Math.random() * -150) - 50 + 'px';
+                enemies[i].style.left = Math.floor(Math.random() * 770) + 'px';
+                bullets[j].parentNode.removeChild(bullets[j]);
+                bullets.splice(j, 1);
             }
         }
     }
