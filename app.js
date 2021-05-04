@@ -16,6 +16,7 @@ player.style.left = 375+'px';
 let enemyCounter = 10;
 var pause = false;
 let killed = 0;
+var counter = 10;
 
 var menu = document.getElementById('menu');
 menu.style.visibility = 'hidden';
@@ -71,10 +72,22 @@ function moveCharacter(event){
     }
 }
 
-setInterval(moveThings, 100);
+/*setInterval(moveThings, 100);
 function moveThings(){
     moveEnemies();
     moveBullets();
+}*/
+setInterval(update, 100);
+function update(){
+    moveEnemies();
+    moveBullets();
+    bulletCollision();
+    playerCollision();
+    
+    if(counter == killed){
+        counter += 10;
+        enemyCounter = enemyCounter + 1;
+    }
 }
 
 setInterval(createEnemies, 1000);
@@ -137,11 +150,11 @@ function moveBullets() {
     }
 }
 
-setInterval(collisions,0);
+/*setInterval(collisions,0);
 function collisions(){
     bulletCollision();
     playerCollision();
-}
+}*/
 
 function bulletCollision(){
     if(pause == false){
