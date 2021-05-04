@@ -16,6 +16,8 @@ body{
     background-image: url(imgs/background.png);
     background-repeat: no-repeat;
     background-size: cover;
+    border-style: solid;
+    border-color: #3ab6f2;
 }
 
 /*#canvas {
@@ -61,6 +63,7 @@ button{
     background-repeat: no-repeat;
     border: none;
     font-size: 30px;
+    color: #3ab6f2;
     /*text-align: center;
     text-decoration: none;
     border-radius: 12px;
@@ -69,7 +72,9 @@ button{
 }
 
 button:hover{
-    background-color: darkblue;
+    /*background-color: darkblue;*/
+    background-image: url(imgs/buttonHover.png);
+    color: red;
 }
 
 .btn1{
@@ -124,4 +129,16 @@ p{
 #score{
     top: -50px;
     left: 10px;
+}
+
+#menu{
+    position: absolute;
+    top: 400px;
+    left: 300px;
+}
+
+#gameOver{
+    top: 100px;
+    left: 250px;
+    visibility: hidden;
 }

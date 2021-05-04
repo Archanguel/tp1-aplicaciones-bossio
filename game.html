@@ -9,12 +9,35 @@
 </head>
 <body>
     <div class="wrapper">
+        <!-- <canvas id="canvas"></canvas>
+            <img id="enemy" src="imgs/player2.png" alt="enemy"/>
+        <img id="bullet" src="imgs/player3.png" alt="bullet"/> -->
         <img id="player" src="imgs/player1.png" alt="player"/>
         <p id="score">Score: 0</p>
         
+        <p id="gameOver">GAME OVER</p>
+        <a href="index.html"><button id="menu">Go to menu</button></a>
     </div>
 
     <audio src="media/game.mp3" controls autoplay loop hidden></audio>
+
+    
+    <audio id="shoot">
+        <source src="media/shoot.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="enemyDie">
+        <source src="media/enemyDie.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="playerDie">
+        <source src="media/playerDie.mp3" type="audio/mpeg">
+    </audio>
+    
     <script src="app.js"></script>
+
+    <!--
+    <audio controls autoplay>
+        <source src="media/game.mp3" type="audio/mpeg">
+    </audio>
+    -->
 </body>
 </html>
