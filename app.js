@@ -129,32 +129,42 @@ function moveBullets() {
     }
 }
 
-setInterval(colision,0);
-function colision(){
-    /*bullets.forEach(function(bullet) {
-        enemies.forEach(function(enemy) {
-            if (parseInt(bullet.style.top) + 'px' == (parseInt(enemy.style.top) + parseInt(enemy.style.height)) + 'px' &&
-                (parseInt(bullet.style.left) - parseInt(bullet.style.width) + 1) + 'px' > parseInt(enemy.style.left) + 'px' &&
-                parseInt(bullet.style.left) + 'px' < (parseInt(enemy.style.left) + parseInt(enemy.style.width) - 1) + 'px') {
-                    enemy.parentNode.removeChild(enemy);
-                    bullet.parentNode.removeChild(bullet);
+setInterval(collisions,0);
+function collisions(){
+    bulletCollision();
+    playerCollision();
+}
+
+function bulletCollision(){
+    if(pause == false){
+        for(let i = 0; i < enemies.length ; i++){
+            for(let j = 0; j < bullets.length ; j++){
+                if(parseInt(enemies[i].style.left) <= (parseInt(bullets[j].style.left) + parseInt(bullets[j].style.width) + 1)
+                && (parseInt(enemies[i].style.left) + parseInt(enemies[i].style.width) - 1) >= parseInt(bullets[j].style.left)
+
+                && (parseInt(enemies[i].style.top) + parseInt(enemies[i].style.height)) >= parseInt(bullets[j].style.top)
+                && (parseInt(enemies[i].style.top)) <= parseInt(bullets[j].style.top)){
                     kda++;
                     score.innerText = 'Score: ' + kda;
+                    enemies[i].style.top = Math.floor(Math.random() * -150) - 50 + 'px';
+                    enemies[i].style.left = Math.floor(Math.random() * 770) + 'px';
+                    bullets[j].parentNode.removeChild(bullets[j]);
+                    bullets.splice(j, 1);
+                }
             }
-        });
-    });*/
+        }
+    }
+}
 
-    for(let i = 0; i < enemies.length ; i++){
-        for(let j = 0; j < bullets.length ; j++){
-            if(parseInt(enemies[i].style.left) < (parseInt(bullets[j].style.left) + parseInt(bullets[j].style.width) + 1)
-            && (parseInt(enemies[i].style.left) + parseInt(enemies[i].style.width) - 1) > parseInt(bullets[j].style.left)
-            && (parseInt(enemies[i].style.top) + parseInt(enemies[i].style.height)) == parseInt(bullets[j].style.top)){
-                kda++;
-                score.innerText = 'Score: ' + kda;
-                enemies[i].style.top = Math.floor(Math.random() * -150) - 50 + 'px';
-                enemies[i].style.left = Math.floor(Math.random() * 770) + 'px';
-                bullets[j].parentNode.removeChild(bullets[j]);
-                bullets.splice(j, 1);
+function playerCollision(){
+    if(pause == false){
+        for(let i = 0; i < enemies.length ; i++){
+            if(parseInt(enemies[i].style.left) <= (parseInt(player.style.left) + parseInt(player.style.width) + 1)
+            && (parseInt(enemies[i].style.left) + parseInt(enemies[i].style.width) - 1) >= parseInt(player.style.left)
+
+            && (parseInt(enemies[i].style.top) + parseInt(enemies[i].style.height)) >= parseInt(player.style.top)
+            && parseInt(enemies[i].style.top) <= parseInt(player.style.top)){
+                pause = true;
             }
         }
     }
