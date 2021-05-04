@@ -6,11 +6,13 @@ let player = document.getElementById("player");
 var score = document.getElementById('score');
 
 player.style.position = 'absolute';
+player.style.height = 50+'px';
+player.style.width = 50+'px';
 player.style.top = 550+'px';
 player.style.left = 375+'px';
 
 //let bulletCounter = 0;
-let enemyCounter = 30;
+let enemyCounter = 10;
 //bullets[0] = bullet;
 //var wrapper = document.getElementsByClassName("wrapper");
 var pause = false;
@@ -99,11 +101,10 @@ function moveCharacter(event){
     }
 }
 
-setInterval(update, 100);
-function update(){
+setInterval(moveThings, 100);
+function moveThings(){
     moveEnemies();
     moveBullets();
-    //colision();
 }
 
 setInterval(createEnemies, 1000);
@@ -111,7 +112,7 @@ setInterval(createEnemies, 1000);
 function createEnemies(){
     if(pause == false && enemies.length < enemyCounter){
         const enemy = new Image()
-        enemy.src = "imgs/player2.png"
+        enemy.src = "imgs/enemy.png"
         enemy.style.width = '30px'
         enemy.style.height = '30px'
         enemy.style.position = 'absolute';
@@ -165,7 +166,7 @@ document.addEventListener("click", createBullet);
 function createBullet(){
     if(pause == false){
         const bullet = new Image()
-        bullet.src = "imgs/player3.png"
+        bullet.src = "imgs/bullet.png"
         bullet.style.width = '10px'
         bullet.style.height = '10px'
         bullet.style.position = 'absolute';
@@ -275,45 +276,85 @@ function moveBackground(){
         //enemy.style.left = Math.floor(Math.random() * 800) + 'px';
     }
 }*/
-setInterval(colision,0);
-function colision(){
-    
-    /*bullets.forEach(function(bullet) {
+
+setInterval(collisions,0);
+function collisions(){
+    bulletCollision();
+    playerCollision();
+}
+
+function bulletCollision(){
+    if(pause == false){
+        /*bullets.forEach(function(bullet) {
+            enemies.forEach(function(enemy) {
+                if (parseInt(bullet.style.top) == (parseInt(enemy.style.top) + parseInt(enemy.style.height)) &&
+                    (parseInt(bullet.style.left) - parseInt(bullet.style.width) + 1) > parseInt(enemy.style.left) &&
+                    parseInt(bullet.style.left) < (parseInt(enemy.style.left) + parseInt(enemy.style.width) - 1)) {
+                        console.log('hola');
+                        enemy.parentNode.removeChild(enemy);
+                        bullet.parentNode.removeChild(bullet);
+                        kda++;
+                        score.innerText = 'Score: ' + kda;
+                }
+            });
+        });*/
+
+        /*for(let i = 0; i < enemies.length ; i++){
+            for(let j = 0; j < bullets.length ; j++){
+                if(enemies[i].style.left == bullets[j].style.left && enemies[i].style.top == bullets[j].style.top){
+                    console.log('hola');
+                    enemies.splice(i, 1);
+                    bullets.splice(j, 1);
+                    //delete bullets[j];
+                    //delete enemies[i];
+                }
+            }
+        }*/
+
         for(let i = 0; i < enemies.length ; i++){
-            if (parseInt(bullet.style.top) == enemies[i].style.top && parseInt(bullet.style.left) == enemies[i].style.left) {
-                console.log('hola');
-                //bullets.shift();
-                //bullet.parentNode.removeChild(bullet);
+            for(let j = 0; j < bullets.length ; j++){
+                if(parseInt(enemies[i].style.left) <= (parseInt(bullets[j].style.left) + parseInt(bullets[j].style.width) + 1)
+                && (parseInt(enemies[i].style.left) + parseInt(enemies[i].style.width) - 1) >= parseInt(bullets[j].style.left)
+
+                && (parseInt(enemies[i].style.top) + parseInt(enemies[i].style.height)) > parseInt(bullets[j].style.top)
+                && (parseInt(enemies[i].style.top)) < parseInt(bullets[j].style.top)){
+                    //console.log('chau');
+                    kda++;
+                    score.innerText = 'Score: ' + kda;
+                    enemies[i].style.top = Math.floor(Math.random() * -150) - 50 + 'px';
+                    enemies[i].style.left = Math.floor(Math.random() * 770) + 'px';
+                    //enemies[i].parentNode.removeChild(enemy);
+                    //enemies.splice(i, 1);
+                    //enemy.parentNode.removeChild(enemy);
+
+                    //bullets[j].style.top = -200 + 'px';
+                    bullets[j].parentNode.removeChild(bullets[j]);
+                    bullets.splice(j, 1);
+                    //bullet.parentNode.removeChild(bullet);
+
+                    //kda++;
+                    //score.innerText = 'Score: ' + kda;
+
+                    //delete bullets[j];
+                    //delete enemies[i];
+                }
             }
         }
-    });
+    }
+}
 
-    for(let i = 0; i < enemies.length ; i++){
-        for(let j = 0; j < bullets.length ; j++){
-            if(enemies[i].style.left == bullets[j].style.left && enemies[i].style.top == bullets[j].style.top){
-                console.log('hola');
-                enemies.splice(i, 1);
-                bullets.splice(j, 1);
-                //delete bullets[j];
-                //delete enemies[i];
-            }
-        }
-    }*/
+function playerCollision(){
+    if(pause == false){
+        for(let i = 0; i < enemies.length ; i++){
+            if(parseInt(enemies[i].style.left) <= (parseInt(player.style.left) + parseInt(player.style.width) + 1)
+            && (parseInt(enemies[i].style.left) + parseInt(enemies[i].style.width) - 1) >= parseInt(player.style.left)
 
-    for(let i = 0; i < enemies.length ; i++){
-        for(let j = 0; j < bullets.length ; j++){
-            if(enemies[i].style.left <= bullets[j].style.left && enemies[i].style.top + enemies[i].style.width >= bullets[j].style.top
-            && enemies[i].style.top + enemies[i].style.height == bullets[j].style.top){ //  && enemies[i].style.top == bullets[j].style.top
-                console.log('hola');
-                enemies.splice(i, 1);
-                enemy.parentNode.removeChild(enemy);
-                bullets.splice(j, 1);
-                bullet.parentNode.removeChild(bullet);
-                kda++;
-                score.innerText = 'Score: ' + kda;
-                //delete bullets[j];
-                //delete enemies[i];
+            && (parseInt(enemies[i].style.top) + parseInt(enemies[i].style.height)) >= parseInt(player.style.top)
+            && parseInt(enemies[i].style.top) <= parseInt(player.style.top)){
+                pause = true;
             }
+            //pause = true;
+            //console.log(parseInt(enemies[i].style.top));
         }
     }
 }
