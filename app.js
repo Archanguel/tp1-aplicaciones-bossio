@@ -201,6 +201,13 @@ function playerCollision(){
                 playerDie.play();
                 gameSound.pause();
                 
+                const backgroundMenu = new Image()
+                backgroundMenu.src = "imgs/backgroundIndex.gif"
+                backgroundMenu.style.width = '800px'
+                backgroundMenu.style.height = '600px'
+                backgroundMenu.style.position = 'absolute';
+                document.querySelector('.wrapper').appendChild(backgroundMenu);
+                
                 document.getElementById('gameOver').style.visibility = 'visible';
                 btnMenu.style.visibility = 'visible';
                 score.style.top = 250+'px';
