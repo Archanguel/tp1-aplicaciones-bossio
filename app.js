@@ -212,6 +212,10 @@ function playerCollision(){
                 btnMenu.style.visibility = 'visible';
                 score.style.top = 250+'px';
                 score.style.left = 290+'px';
+                enemies.forEach(enemy => {
+                    enemy.style.top = Math.floor(Math.random() * -150) - 50 + 'px';
+                    enemy.style.left = Math.floor(Math.random() * 770) + 'px';
+                });
             }
         }
     }
