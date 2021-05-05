@@ -81,12 +81,14 @@ p{
     top: -10px;
     left: 10px;
     font-family: 'Press Start 2P', cursive;
+    z-index: 2;
 }
 
 #btnMenu{
     position: absolute;
     top: 400px;
     left: 300px;
+    z-index: 3;
 }
 
 #gameOver{
@@ -94,4 +96,5 @@ p{
     left: 275px;
     font-family: 'Press Start 2P', cursive;
     visibility: hidden;
+    z-index: 1;
 }
