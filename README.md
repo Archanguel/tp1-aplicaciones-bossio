@@ -1,6 +1,6 @@
-# tp1-aplicaciones-bossio
+# TP1 Bossio Alberto
 
-Cómo Jugar
+## Cómo Jugar
 
 El jugador puede manipular una nave utilizando las teclas:
 W - moverse para arriba
