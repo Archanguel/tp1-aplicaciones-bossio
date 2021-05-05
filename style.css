@@ -1,5 +1,6 @@
 body{
-    background-color: black;
+    /*background-color: black;*/
+    background-image: url(imgs/background2.png);
 }
 
 .wrapper{
@@ -7,17 +8,53 @@ body{
     position: absolute;
     width: 800px;
     height: 600px;
-    background-image: url(imgs/background.png);
+    /*background: white;
+    border: 1px solid red;
+    position: absolute;*/
+    /*top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);*/
+    /*background-image: url(imgs/background2.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover;*/
     border-style: solid;
     border-color: #3ab6f2;
 }
 
+/*#canvas {
+    width: 800px;
+    height: 600px;
+    background: white;
+    border: 1px solid red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(imgs/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}*/
+
+/*#player{
+    height: 50px;
+    width: 50px;
+}*/
+
+/*#enemy{
+    height: 30px;
+    width: 30px;
+    
+}
+
+#bullet{
+    height: 10px;
+    width: 10px;
+    background-image: url(imgs/player3.png);
+}*/
+
 button{
     width: 200px;
     height: 100px;
-    font-size: 16px;
     cursor: pointer;
     position: absolute;
     background-color: transparent;
@@ -25,11 +62,19 @@ button{
     background-size: contain;
     background-repeat: no-repeat;
     border: none;
-    font-size: 30px;
+    font-size: 25px;
     color: #3ab6f2;
+    font-family: 'Press Start 2P', cursive;
+    /*font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 12px;
+    background-color: blue;
+    display: block;*/
 }
 
 button:hover{
+    /*background-color: darkblue;*/
     background-image: url(imgs/buttonHover.png);
     color: red;
 }
@@ -43,7 +88,7 @@ button:hover{
     left: 500px;
 }
 .btn3{
-    top: 400px;
+    top: 450px;
     left: 300px;
 }
 
@@ -54,44 +99,52 @@ button:hover{
     height: 600px;
     border-style: solid;
     border-color: #3ab6f2;
-    background-image: url(imgs/background.png);
+    background-image: url(imgs/backgroundIndex.gif);
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+/*.audio{
+    position: fixed;
+}*/
 
 .title{
     width: 600px;
     height: 100px;
     position: absolute;
-    top: 50px;
+    top: 100px;
     left: 100px;
 }
 
 p{
-    font-size: 50px;
+    font-size: 30px;
     text-align: center;
+    /*font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;*/
+    font-family: 'Press Start 2P', cursive;
     color: #3ab6f2;
     position: absolute;
 }
 
 #credits{
-    top: 50px;
-    left: 100px;
+    top: 20px;
+    left: 200px;
 }
 
 #score{
-    top: -50px;
+    top: -10px;
     left: 10px;
+    font-family: 'Press Start 2P', cursive;
 }
 
-#menu{
+#btnMenu{
     position: absolute;
     top: 400px;
     left: 300px;
 }
 
 #gameOver{
-    top: 100px;
-    left: 250px;
+    top: 150px;
+    left: 275px;
+    font-family: 'Press Start 2P', cursive;
     visibility: hidden;
 }
