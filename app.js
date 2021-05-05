@@ -173,7 +173,7 @@ function bulletCollision(){
                     explosion.style.top = (parseInt(enemies[i].style.top)) + 'px';
                     explosion.style.left = (parseInt(enemies[i].style.left)) +'px';
                     document.querySelector('.wrapper').appendChild(explosion);
-                    setTimeout(function(){ explosion.parentNode.removeChild(explosion); }, 1000);
+                    setTimeout(function(){ explosion.parentNode.removeChild(explosion); }, 700);
 
                     killed++;
                     score.innerText = 'Score: ' + killed;
