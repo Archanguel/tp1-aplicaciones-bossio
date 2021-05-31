@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>Start Menu</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="container">
-        <img class="title" src="imgs/titulo.png" alt="title">
-        <a href="game.html"><button class="btn1">Start Game</button></a>
-        <a href="credits.html"><button class="btn2">Credits</button></a>
+      <img class="title" src="imgs/titulo.png" alt="title" />
+      <a href="game.html"><button class="btn1">Start Game</button></a>
+      <a href="credits.html"><button class="btn2">Credits</button></a>
     </div>
-    
-    <audio id="theme" src="media/theme.mp3" controls autoplay loop hidden></audio>
+
+    <audio
+      id="theme"
+      src="media/theme.mp3"
+      controls
+      autoplay
+      loop
+      hidden
+    ></audio>
 
     <script>
-        var theme = document.getElementById('theme');
-        theme.volume = 0.2;
+      var theme = document.getElementById("theme");
+      theme.volume = 0.2;
     </script>
-</body>
+  </body>
 </html>

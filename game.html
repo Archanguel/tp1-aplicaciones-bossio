@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>Game</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="wrapper">
-        <img id="player" src="imgs/player1.png" alt="player"/>
-        <p id="score">Score: 0</p>
-        
-        <p id="gameOver">GAME OVER</p>
-        <a href="index.html"><button id="btnMenu">Go to menu</button></a>
+      <img id="player" src="imgs/player1.png" alt="player" />
+      <p id="score">Score: 0</p>
+
+      <p id="gameOver">GAME OVER</p>
+      <a href="index.html"><button id="btnMenu">Go to menu</button></a>
     </div>
 
     <audio id="gameSound">
-        <source src="media/game.mp3" type="audio/mpeg">
+      <source src="media/game.mp3" type="audio/mpeg" />
     </audio>
 
-    
+    <!-- ¿Por qué no todo en el mismo <audio /> como hiciste en index.html? -->
     <audio id="shoot">
-        <source src="media/shoot.mp3" type="audio/mpeg">
+      <source src="media/shoot.mp3" type="audio/mpeg" />
     </audio>
     <audio id="enemyDie">
-        <source src="media/enemyDie.mp3" type="audio/mpeg">
+      <source src="media/enemyDie.mp3" type="audio/mpeg" />
     </audio>
     <audio id="playerDie">
-        <source src="media/playerDie.mp3" type="audio/mpeg">
+      <source src="media/playerDie.mp3" type="audio/mpeg" />
     </audio>
-    
+
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
